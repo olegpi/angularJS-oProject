@@ -1,0 +1,11 @@
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="currentLang == 'fr' ? false : true" ng-class="currentLang == 'fr' ? 'active' : ''"><a class="header-language french-btn" href="{{currentPage}}?{{id}}lang=en" ng-click="setLang('en')">EN</a></li>
+        <li ng-hide="currentLang == 'en' ? false : true"  ng-class="currentLang == 'en' ? 'active' : ''"><a class="header-language french-btn" href="{{currentPage}}?{{id}}lang=fr" ng-click="setLang('fr')">FR</a></li>		
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

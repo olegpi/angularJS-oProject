@@ -1,0 +1,194 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Bolt - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+ 
+/* FONTS 
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
+*/
+/* OVERALL ASPECT */
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+body {
+	background-color: #f2f2f2;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    
+    margin-top: 70px;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.mt {
+	margin-top: 40px;
+}
+
+/* Links */
+a {
+    color: #f85c37;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+/* Bootstrap Modifications */
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.navbar {
+	font-weight: 800;
+	font-size: 14px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #ffffff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #C0D9E9;
+}
+
+.navbar-brand {
+	font-size: 60px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+}
+
+.btn-theme {
+	color: #ffffff;
+	background-color: #C0D9E9;
+	border-color: transparent;
+}
+
+.btn {
+	padding: 10px 30px;
+	margin-bottom: 0;
+	font-size: 18px;
+	border: 5px solid transparent;
+	border-radius: 0px;
+}
+
+.lead {
+	letter-spacing: 1px;
+}
+
+/* WRAP SECTIONS */
+table.wrap-button{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;	
+}
+
+table.wrap-button button{
+	width: 65%;
+    height: 65%;
+    background-color: #fff;
+    border: solid 1px #000;	
+}
+
+/* Footer */
+#f {
+	padding-top: 20px;
+	background-color: #C0D9E9;
+}
+
+#f p {
+	color: white;
+	text-align: right;
+	font-weight: 400;
+}
+
+/* monitors and laptops */
+@media screen and (min-width: 1700px)  {
+}
+
+@media screen and (min-width: 1240px) and (max-width: 1700px)  {
+}
+
+/* tablet */
+@media screen and (min-width: 990px) and (max-width: 1240px)  {
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+	.navbar-right {
+		float: right!important;
+		margin-right: 0px;
+	}	
+}
+
+@media screen and (max-width: 420px) {
+	.navbar-right {
+		float: right!important;
+		margin-right: 0px;
+	}
+}
+
+/* Forms Input Fields */
+@media screen and (min-width: 768px){
+	.navbar-right {
+		float: right!important;
+		margin-right: 0px;
+	}
+}

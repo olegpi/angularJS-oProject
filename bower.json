@@ -1,0 +1,24 @@
+{
+  "name": "op_angular",
+  "version": "1.0.0",
+  "private": true,
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "angular-loader": "^1.5.6",
+    "angular-mocks": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.4",
+    "angular-cookies": "^1.5.6",
+    "angular-translate": "^2.11.0",
+    "angular-translate-storage-cookie": "^2.11.0",
+    "angular-translate-loader-url": "^2.11.0",
+    "angular-sanitize": "^1.5.6",
+    "angularjs-slider": "^5.8.1"
+  },
+  "devDependencies": {}
+}

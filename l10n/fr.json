@@ -1,0 +1,8 @@
+{
+  "load" : {
+    "lang" : {
+      "HEADER_HIDE_EN": "false",
+      "HEADER_HIDE_FR": "true"
+    }
+  }
+}

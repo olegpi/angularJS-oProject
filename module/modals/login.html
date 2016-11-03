@@ -1,0 +1,123 @@
+<div class="modal-content" ng-controller="ModalLoginForgotController" >
+<!-- Modal content -->
+<div id="loginForm">
+  <div class="modal-header">
+	<h2><span translate="load.modal.login_head"></span><span class="modalHeaderElements icon-Close_X" ng-click="closeModal()"></span></h2>
+  </div>
+  <div class="modal-body">
+    <p translate="load.modal.login_description"></p>
+	<table>
+		<tr>
+			<td>
+				<!-- ////////////////////////////// -->
+				<form class="loginForm" name="loginForm" ng-submit="submitloginForm(login, 'loginForm')" novalidate>
+					<div class="form-section">
+						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<div translate="load.modal.login_email"></div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<input placeholder="{{'load.modal.login_email' | translate}}" 
+										type="email" class="form-control" maxlength="80" name="loginEmail" 
+										ng-model="login.loginEmail" ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/" required/>
+
+									<p class="error">
+										<span class="error" data-ng-show="loginForm.loginEmail.$dirty && loginForm.loginEmail.$error.required">{{'load.errors.FIELD_required' | translate}}</span>
+										<span class="error" data-ng-show="loginForm.loginEmail.$dirty && !(loginForm.loginEmail.$valid) && !(loginForm.loginEmail.$error.required)">{{'load.errors.EMAIL_not_valid' | translate}}</span>									
+									</p>
+								</div>	
+							</div>						
+						</div> 
+						
+						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<div translate="load.modal.login_password"></div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<input placeholder="{{'load.modal.login_password' | translate}}" type="password" id="loginPassword"
+									class="form-control" name="loginPassword" ng-model="login.loginPassword" 
+									ng-minlength="8" ng-maxlength="20" required/>
+									<div class="togglePasswordVisible" ng-click="onChangeInputPasswordTypeLogin('loginPassword')"><i class="{{iconLoginPassword}}"></i></div>
+									
+									<p class="error">
+										<span class="error" data-ng-show="loginForm.loginPassword.$dirty && loginForm.loginPassword.$error.required">{{'load.errors.FIELD_required' | translate}}</span>
+										<span class="error" data-ng-show="!loginForm.loginPassword.required && (loginForm.loginPassword.$error.minlength || loginForm.loginPassword.$error.maxlength)">{{'load.errors.FIELD_min_max_length' | translate}}</span>									
+									</p>									
+								</div>	
+							</div>						
+						</div> 
+						
+					</div>
+					<div class="form-section">
+						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 dynamic-field fpassword-link">
+									<span class="login-switch-screen" translate="load.modal.login_forgot_password" ng-click="hideLoginForms(['loginForm', 'fpasswordForm'])"></span>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 dynamic-field">
+									<button class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid"><span class="icon-Secure-Lock"></span>{{'load.modal.login_btn' | translate}}</button>
+								</div>								
+							</div>
+						</div>
+					</div>
+				<!-- ////////////////////////////// -->	
+				</form>
+			</td>
+		</tr>
+	</table>
+  </div>
+</div> 
+<!--  ---------------------------> 
+<div id="fpasswordForm" class="displayNone">
+  <div class="modal-header">
+	<h2><span translate="load.modal.forgot_head"></span><span class="modalHeaderElements icon-Close_X" ng-click="closeModal()"></span></h2>
+  </div>
+  <div class="modal-body">
+    <p translate="load.modal.forgot_description"></p>
+	<table>
+		<tr>
+			<td>
+				<!-- ////////////////////////////// -->
+				<form class="loginForm" name="fpasswordForm" ng-submit="submitloginForm(fpassword, 'fpasswordForm')" novalidate>
+					<div class="form-section">
+						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<div translate="load.modal.login_email"></div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dynamic-field">
+									<input placeholder="{{'load.modal.login_email' | translate}}" 
+										type="email" class="form-control" maxlength="80" name="loginEmail" 
+										ng-model="fpassword.loginEmail" ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/" required/>
+
+									<p class="error">
+										<span class="error" data-ng-show="fpasswordForm.loginEmail.$dirty && fpasswordForm.loginEmail.$error.required">{{'load.errors.FIELD_required' | translate}}</span>
+										<span class="error" data-ng-show="fpasswordForm.loginEmail.$dirty && !(fpasswordForm.loginEmail.$valid) && !(fpasswordForm.loginEmail.$error.required)">{{'load.errors.EMAIL_not_valid' | translate}}</span>									
+									</p>
+								</div>	
+							</div>						
+						</div> 				
+					</div>
+					<div class="form-section">
+						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 dynamic-field fpassword-link">
+									<span class="login-switch-screen" translate="load.modal.login_return" ng-click="hideLoginForms(['fpasswordForm', 'loginForm'])"></span>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 dynamic-field">
+									<button class="btn btn-primary btn-block" ng-disabled="fpasswordForm.$invalid" >{{'load.modal.login_send' | translate}}</button>
+								</div>								
+							</div>
+						</div>
+					</div>
+				<!-- ////////////////////////////// -->
+				</form>
+			</td>
+		</tr>
+	</table>
+  </div>
+</div>  
+<!--  ---------------------------> 
+</div>
