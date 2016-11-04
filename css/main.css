@@ -1,16 +1,3 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://alvarez.is
- *
- * Project Name: Bolt - Free Bootstrap 3 Theme
- * Version: 1.0
- * URL: http://blacktie.co
- */
- 
-/* FONTS 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
-*/
 /* OVERALL ASPECT */
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
@@ -88,6 +75,33 @@ a:after {
     padding: 0;
 }
 
+/* Reset `button` styles */
+button.your-Class:link,
+button.your-Class:visited,
+button.your-Class:hover,
+button.your-Class:hover,
+button.your-Class {
+    background: none;
+    border: 0;
+    color: inherit;
+    /* cursor: default; */
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+       -ms-user-select: none;
+}
+
+button.your-Class:focus {outline:0;}
+
+button.your-Class::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+/* ------------------------------------- */
 
 .navbar {
 	font-weight: 800;

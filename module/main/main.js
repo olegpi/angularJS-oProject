@@ -6,7 +6,16 @@ angular.module('oStyleProject.main', ['ngRoute'])
 		$scope.itemList = [];
 		var borderName = '';
 		var radiusName = '';
-		var sliderRadius_item = 1;
+		var borderThick_item = 1;
+		var borderRadius_item = 1;
+		var borderStyle_item = 'solid';
+		var borderColor_item = '#000000';
+		var bgColor_item = '#ffffff';
+		
+		var nameOfSides = ['top', 'bottom', 'right', 'left'];
+		var nameOfCorner = ['tl', 'tr', 'br', 'bl'];
+		var arrCorner = ['none', 'hidden', 'dotted',	 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'initial', 'inherit'];
+		
         //Added class in body
         $rootScope.bodylayout = (SearchItemInArray.searchByName(CustomConstants.bodyClasses, 'main')).data;
 
@@ -26,59 +35,108 @@ angular.module('oStyleProject.main', ['ngRoute'])
         $scope.header = SearchItemInArray.searchByName(CustomConstants.templates, 'header');
         $scope.footer = SearchItemInArray.searchByName(CustomConstants.templates, 'footer');
 		
+		// init border Style
+		onSetBorderValue($scope, nameOfSides, 'style', borderStyle_item);
+		onSetBorderValue($scope, nameOfSides, 'thick', borderThick_item);
+		onSetBorderValue($scope, nameOfCorner, 'corner', borderRadius_item);
+		onSetBorderValue($scope, nameOfSides, 'color', borderColor_item);
+		
+		$scope.itemList['bg-color'] = bgColor_item;		
+		$scope.listStyle = nameOfSides;
+		$scope.listCorner = arrCorner;
+		
 		$scope.selectBorder = function(item) {
 			if(item){
 				borderName = item;
-			}			
+			}else{
+				borderName = '';
+				if(borderStyle_item){
+					onSetBorderValue($scope, nameOfSides, 'style', borderStyle_item);
+				}				
+			}
 		};
 		
+		/* Style */			
 		$scope.selectBorderStyle = function(item) {
-			console.log(item);
-			if(item){
-				$scope.itemList[borderName+'-style'] = item;
-			}			
-		}; 		
+			borderStyle_item = item;
+			if(borderName){
+				$scope.itemList[borderName+'-style'] = borderStyle_item;
+			}
+			else{
+				onSetBorderValue($scope, nameOfSides, 'style', borderStyle_item);
+			}
+		}; 
 		
+		/* Thick */		
 		$scope.sliderThick = {
 		  value: 1,
 		  options: {
 			floor: 0,
 			ceil: 10,
 			onChange: function(id, val) {
-				$scope.itemList[borderName + '-thick'] = val;
+				if(borderName){
+					$scope.itemList[borderName + '-thick'] = val;
+					if(borderStyle_item){
+						$scope.itemList[borderName+'-style'] = borderStyle_item;
+					}
+				}else{
+					onSetBorderValue($scope, nameOfSides, 'thick', val);					
+				}
 			}			
 		  }
 		};
 		
+		/* Radius */
 		$scope.selectBorderRadius = function(item) {
 			if(item){
 				radiusName = item;
-				$scope.itemList[radiusName] = sliderRadius_item;
+				$scope.itemList[radiusName+'-corner'] = borderRadius_item;
 			}else{
 				radiusName = '';
-				$scope.itemList["tl"] = sliderRadius_item;
-				$scope.itemList["tr"] = sliderRadius_item;
-				$scope.itemList["br"] = sliderRadius_item;
-				$scope.itemList["bl"] = sliderRadius_item;
+				onSetBorderValue($scope, nameOfCorner, 'corner', borderRadius_item);
 			}				
 		};		
 		
 		$scope.sliderRadius = {
-		  value: sliderRadius_item,
+		  value: borderRadius_item,
 		  options: {
 			floor: 0,
-			ceil: 100,
+			ceil: 50,
 			onChange: function(id, val) {
+				borderRadius_item = val;
 				if(radiusName){
-					$scope.itemList[radiusName] = val;
-					sliderRadius_item = val;
+					$scope.itemList[radiusName+'-corner'] = val;					
 				}else{
-					$scope.itemList["tl"] = val;
-					$scope.itemList["tr"] = val;
-					$scope.itemList["br"] = val;
-					$scope.itemList["bl"] = val;	
+					onSetBorderValue($scope, nameOfCorner, 'corner', val);					
 				}
 			}			
 		  }
-		};	
+		};
+		
+		/* Border Color */
+		$scope.onChangeBorderColor = function(borderColor) {
+			if(borderColor){
+				if(borderName){
+					$scope.itemList[borderName+'-color'] = borderColor;
+				}
+				else{					
+					onSetBorderValue($scope, nameOfSides, 'color', borderColor);
+				}
+			}
+		};
+		/* Backgraund Color */
+		$scope.onChangeBackgraundColor = function(bgColor) {
+			if(bgColor){
+				$scope.itemList['bg-color'] = bgColor;
+			}
+		};		
+		
     }]); 
+	
+	function onSetBorderValue(scope, arrName, suffix, value){
+		var arrayLength = arrName.length;
+		for (var i = 0; i < arrayLength; i++) {
+			scope.itemList[arrName[i] + '-' + suffix] = value;
+			console.log(arrName[i] + '-' + suffix + ' = ' + value);
+		}		
+	}

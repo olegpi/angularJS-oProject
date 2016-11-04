@@ -7,7 +7,8 @@ angular.module('oStyleProject', [
     'pascalprecht.translate',
     'ngSanitize',
     'ngCookies',
-	'rzModule'
+	'rzModule',
+	'angularSpectrumColorpicker'
 ])
 
 // main root config			

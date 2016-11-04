@@ -2,16 +2,17 @@
 
 <div class="container">
 	<div class="row centered mt grid">
-		<h3>Style for Button</h3>
+		<h3>Style for Button {{itemList['top-thick']}}</h3>
 		<div class="mt"></div>
 		<div class="col-lg-6">
 			<table class="wrap-button"><tr><td>
 				<button class="your-Class" style="
-				border-top: {{(itemList['top-style'] ? itemList['top-style'] : 'solid')}} {{(itemList['top-thick'] ? itemList['top-thick'] : '1')}}px #ccc;
-				border-right: {{(itemList['right-style'] ? itemList['right-style'] : 'solid')}} {{(itemList['right-thick']  ? itemList['right-thick'] : '1')}}px #ccc;
-				border-bottom: {{(itemList['bottom-style'] ? itemList['bottom-style'] : 'solid')}} {{(itemList['bottom-thick']  ? itemList['bottom-thick'] : '1')}}px #ccc;
-				border-left: {{(itemList['left-style'] ? itemList['left-style'] : 'solid')}} {{(itemList['left-thick']  ? itemList['left-thick'] : '1')}}px #ccc;
-				border-radius: {{(itemList['tl'] ? itemList['tl'] : '0')}}px {{(itemList['tr'] ? itemList['tr'] : '0')}}px {{(itemList['br'] ? itemList['br'] : '0')}}px {{(itemList['bl'] ? itemList['bl'] : '0')}}px">
+				border-top: {{itemList['top-style']}} {{itemList['top-thick']}}px {{itemList['top-color']}};
+				border-right: {{itemList['right-style']}} {{itemList['right-thick']}}px {{itemList['right-color']}};
+				border-bottom: {{itemList['bottom-style']}} {{itemList['bottom-thick']}}px {{itemList['bottom-color']}};
+				border-left: {{itemList['left-style']}} {{itemList['left-thick']}}px {{itemList['left-color']}};				
+				border-radius: {{itemList['tl-corner']}}px {{itemList['tr-corner']}}px {{itemList['br-corner']}}px {{itemList['bl-corner']}}px;
+				background-color: {{itemList['bg-color']}};">
 					Text
 				</button>
 			</td></tr></table>
@@ -19,26 +20,18 @@
 		<div class="col-lg-6">
 			<select ng-change="selectBorder(border)"  ng-model="border">
 				<option value="" selected>Select All</option>
-				<option value="top">top</option>
-				<option value="right">right</option>
-				<option value="bottom">bottom</option>
-				<option value="left">left</option>
+				<option ng-repeat="optionStyle in listStyle" ng-value="optionStyle">{{optionStyle}}</option>
 			</select>
 			<select ng-change="selectBorderStyle(borderStyle)"  ng-model="borderStyle">
 				<option value="" selected>Select All</option>
-				<option value="none">none</option>	
-				<option value="hidden">hidden</option>	
-				<option value="dotted">dotted</option>	
-				<option value="dashed">dashed</option>	
-				<option value="solid">solid</option>	
-				<option value="double">double</option>	
-				<option value="groove">groove</option>	
-				<option value="ridge">ridge</option>	
-				<option value="inset">inset</option>	
-				<option value="outset">outset</option>	
-				<option value="initial">initial</option>	
-				<option value="inherit">inherit</option>
-			</select>			
+				<option ng-repeat="optionCorner in listCorner" ng-value="optionCorner">{{optionCorner}}</option>
+			</select>
+			<spectrum-colorpicker
+				ng-model="borderColor"
+				format="'hex'"
+				on-change="onChangeBorderColor(color)">
+			</spectrum-colorpicker>
+			
 			<rzslider rz-slider-model="sliderThick.value" rz-slider-options="sliderThick.options"></rzslider>
 			<select ng-change="selectBorderRadius(borderRadius)"  ng-model="borderRadius">
 				<option value="" selected>Select All</option>
@@ -47,7 +40,15 @@
 				<option value="br">bottom-right</option>
 				<option value="bl">bottom-left</option>
 			</select>
-			<rzslider rz-slider-model="sliderRadius.value" rz-slider-options="sliderRadius.options"></rzslider>			
+			<rzslider rz-slider-model="sliderRadius.value" rz-slider-options="sliderRadius.options"></rzslider>	
+			<spectrum-colorpicker
+				ng-model="bgColor"
+				format="'hex'"
+				on-change="onChangeBackgraundColor(color)"
+				options="{
+					color: '#ffffff'
+				}">
+			</spectrum-colorpicker>			
 		</div>
 	</div>
 	
@@ -57,4 +58,4 @@
 	</div>	
 </div>
 
-<div ng-include="footer.url"></div>
+<!--div ng-include="footer.url"></div-->
