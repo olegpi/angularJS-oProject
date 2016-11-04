@@ -65,6 +65,8 @@ a:after {
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
+*:focus {outline:0;}
+
 /* Bootstrap Modifications */
  hr {
     display: block;
@@ -158,6 +160,51 @@ table.wrap-button button{
     border: solid 1px #000;	
 }
 
+table.wrap-button .info{
+    text-align: left;
+    padding: 40px;
+}
+
+table.wrap-button .info .info-head{
+	color: #333;
+}
+
+table.wrap-button .info .info-body{
+	margin-left: 30px;
+	color: #999;
+}
+
+.pos-left{
+	text-align: left;
+}
+
+select {
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    height: 40px;
+    background: url(../assets/img/br_down.png) no-repeat right;
+    appearance: none;
+    -webkit-appearance: none;
+    background-position: 98% center;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+	width: 100%;
+    margin-bottom: 5px;	
+	border-bottom: solid 2px #b1b1b2;
+    border-radius: 0px;	
+}
+
+select:focus {outline:0;}
+
+.with-margin{
+	margin: 10px 0px 0px 0px;
+}
+
+.color-padding{
+	padding: 20px 0px 0px 0px;
+}
 /* Footer */
 #f {
 	padding-top: 20px;

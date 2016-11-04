@@ -3,6 +3,17 @@
     "lang" : {
       "HEADER_HIDE_EN": "true",
       "HEADER_HIDE_FR": "false"
+    },
+    "main" : {
+      "header": "Style of the Button",
+      "select_all": "Select All",
+	  "border_style": "style of borders",
+	  "corner_style": "radius of corners",
+	  "bg_style": "color of background",
+	  "height": "height %",
+	  "width": "width %",
+	  "font": "style of font",
+	  "font_color": "color of font"
     }
   }
 }

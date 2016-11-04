@@ -14,7 +14,7 @@ angular.module('oStyleProject.main', ['ngRoute'])
 		
 		var nameOfSides = ['top', 'bottom', 'right', 'left'];
 		var nameOfCorner = ['tl', 'tr', 'br', 'bl'];
-		var arrCorner = ['none', 'hidden', 'dotted',	 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'initial', 'inherit'];
+		var arrStyle = ['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'initial', 'inherit'];
 		
         //Added class in body
         $rootScope.bodylayout = (SearchItemInArray.searchByName(CustomConstants.bodyClasses, 'main')).data;
@@ -40,10 +40,14 @@ angular.module('oStyleProject.main', ['ngRoute'])
 		onSetBorderValue($scope, nameOfSides, 'thick', borderThick_item);
 		onSetBorderValue($scope, nameOfCorner, 'corner', borderRadius_item);
 		onSetBorderValue($scope, nameOfSides, 'color', borderColor_item);
+		$scope.itemList['width'] = 50;
+		$scope.itemList['height'] = 50;
+		$scope.itemList['fontSize'] = 15;
+		$scope.itemList['color'] = '#000000';
 		
 		$scope.itemList['bg-color'] = bgColor_item;		
-		$scope.listStyle = nameOfSides;
-		$scope.listCorner = arrCorner;
+		$scope.listSides = nameOfSides;
+		$scope.listStyle = arrStyle;
 		
 		$scope.selectBorder = function(item) {
 			if(item){
@@ -129,6 +133,49 @@ angular.module('oStyleProject.main', ['ngRoute'])
 			if(bgColor){
 				$scope.itemList['bg-color'] = bgColor;
 			}
+		};
+		
+		/* Width */
+		$scope.sliderWidth = {
+		  value: 50,
+		  options: {
+			floor: 0,
+			ceil: 100,
+			onChange: function(id, val) {
+				$scope.itemList['width'] = val;
+			}			
+		  }
+		};
+
+		/* Height */
+		$scope.sliderHeight = {
+		  value: 50,
+		  options: {
+			floor: 0,
+			ceil: 100,
+			onChange: function(id, val) {
+				$scope.itemList['height'] = val;
+			}			
+		  }
+		};	
+
+		/* Font Color */
+		$scope.onChangeFontColor = function(fontColor) {
+			if(fontColor){
+				$scope.itemList['color'] = fontColor;
+			}
+		};
+		
+		/* Font color */
+		$scope.fontSize = {
+		  value: 15,
+		  options: {
+			floor: 8,
+			ceil: 30,
+			onChange: function(id, val) {
+				$scope.itemList['fontSize'] = val;
+			}			
+		  }
 		};		
 		
     }]); 

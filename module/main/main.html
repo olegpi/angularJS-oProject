@@ -2,53 +2,159 @@
 
 <div class="container">
 	<div class="row centered mt grid">
-		<h3>Style for Button {{itemList['top-thick']}}</h3>
+		<h2 translate="load.main.header"></h2>
 		<div class="mt"></div>
 		<div class="col-lg-6">
-			<table class="wrap-button"><tr><td>
-				<button class="your-Class" style="
-				border-top: {{itemList['top-style']}} {{itemList['top-thick']}}px {{itemList['top-color']}};
-				border-right: {{itemList['right-style']}} {{itemList['right-thick']}}px {{itemList['right-color']}};
-				border-bottom: {{itemList['bottom-style']}} {{itemList['bottom-thick']}}px {{itemList['bottom-color']}};
-				border-left: {{itemList['left-style']}} {{itemList['left-thick']}}px {{itemList['left-color']}};				
-				border-radius: {{itemList['tl-corner']}}px {{itemList['tr-corner']}}px {{itemList['br-corner']}}px {{itemList['bl-corner']}}px;
-				background-color: {{itemList['bg-color']}};">
-					Text
-				</button>
-			</td></tr></table>
+			<div class="row">
+				<div class="col-lg-12">	
+					<table class="wrap-button"><tr><td>
+						<button class="your-Class" style="
+						border-top: {{itemList['top-style']}} {{itemList['top-thick']}}px {{itemList['top-color']}};
+						border-right: {{itemList['right-style']}} {{itemList['right-thick']}}px {{itemList['right-color']}};
+						border-bottom: {{itemList['bottom-style']}} {{itemList['bottom-thick']}}px {{itemList['bottom-color']}};
+						border-left: {{itemList['left-style']}} {{itemList['left-thick']}}px {{itemList['left-color']}};				
+						border-radius: {{itemList['tl-corner']}}px {{itemList['tr-corner']}}px {{itemList['br-corner']}}px {{itemList['bl-corner']}}px;
+						background-color: {{itemList['bg-color']}};
+						width: {{itemList['width']}}%;
+						height: {{itemList['height']}}%;
+						font-size: {{itemList['fontSize']}}px;
+						color: {{itemList['color']}};">						
+						Text</button>
+					</td></tr></table>
+				</div>
+			</div>
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-12">	
+					<table class="wrap-button"><tr><td>
+					<div class="info">
+					<span class="info-head">.your-Class {</span><br/>
+						<span class="info-body">border-top: {{itemList['top-style']}} {{itemList['top-thick']}}px {{itemList['top-color']}};</span><br/>
+						<span class="info-body">border-right: {{itemList['right-style']}} {{itemList['right-thick']}}px {{itemList['right-color']}};</span><br/>
+						<span class="info-body">border-bottom: {{itemList['bottom-style']}} {{itemList['bottom-thick']}}px {{itemList['bottom-color']}};</span><br/>
+						<span class="info-body">border-left: {{itemList['left-style']}} {{itemList['left-thick']}}px {{itemList['left-color']}};</span><br/>				
+						<span class="info-body">border-radius: {{itemList['tl-corner']}}px {{itemList['tr-corner']}}px {{itemList['br-corner']}}px {{itemList['bl-corner']}}px;</span><br/>
+						<span class="info-body">background-color: {{itemList['bg-color']}};</span><br/>
+						<span class="info-body">width: {{itemList['width']}}%;</span><br/>
+						<span class="info-body">height: {{itemList['height']}}%;</span><br/>
+						<span class="info-body">font-size: {{itemList['fontSize']}}px;</span><br/>
+						<span class="info-body">color: {{itemList['color']}};</span><br/>
+					<span class="info-head">}</span>
+					</div>
+					</td></tr></table>
+				</div>
+			</div>			
 		</div>
 		<div class="col-lg-6">
-			<select ng-change="selectBorder(border)"  ng-model="border">
-				<option value="" selected>Select All</option>
-				<option ng-repeat="optionStyle in listStyle" ng-value="optionStyle">{{optionStyle}}</option>
-			</select>
-			<select ng-change="selectBorderStyle(borderStyle)"  ng-model="borderStyle">
-				<option value="" selected>Select All</option>
-				<option ng-repeat="optionCorner in listCorner" ng-value="optionCorner">{{optionCorner}}</option>
-			</select>
-			<spectrum-colorpicker
-				ng-model="borderColor"
-				format="'hex'"
-				on-change="onChangeBorderColor(color)">
-			</spectrum-colorpicker>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="pos-left"><h3 translate="load.main.width"></h3></div>
+					<rzslider rz-slider-model="sliderWidth.value" rz-slider-options="sliderWidth.options"></rzslider>
+				</div>
+				
+				<div class="col-lg-6">
+					<div class="pos-left"><h3 translate="load.main.height"></h3></div>
+					<rzslider rz-slider-model="sliderHeight.value" rz-slider-options="sliderHeight.options"></rzslider>
+				</div>
+			</div>
 			
-			<rzslider rz-slider-model="sliderThick.value" rz-slider-options="sliderThick.options"></rzslider>
-			<select ng-change="selectBorderRadius(borderRadius)"  ng-model="borderRadius">
-				<option value="" selected>Select All</option>
-				<option value="tl">top-left</option>
-				<option value="tr">top-right</option>
-				<option value="br">bottom-right</option>
-				<option value="bl">bottom-left</option>
-			</select>
-			<rzslider rz-slider-model="sliderRadius.value" rz-slider-options="sliderRadius.options"></rzslider>	
-			<spectrum-colorpicker
-				ng-model="bgColor"
-				format="'hex'"
-				on-change="onChangeBackgraundColor(color)"
-				options="{
-					color: '#ffffff'
-				}">
-			</spectrum-colorpicker>			
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-12">		
+					<div class="pos-left"><h3 translate="load.main.border_style"></h3></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<select ng-change="selectBorder(border)"  ng-model="border">
+						<option value="" selected translate="load.main.select_all"></option>
+						<option ng-repeat="optionSides in listSides" ng-value="optionSides">{{optionSides}}</option>
+					</select>
+				</div>
+			
+				<div class="col-lg-6">
+					<select ng-change="selectBorderStyle(borderStyle)"  ng-model="borderStyle">
+						<option value="" selected  translate="load.main.select_all"></option>
+						<option ng-repeat="optionStyle in listStyle" ng-value="optionStyle">{{optionStyle}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-2 color-padding">
+					<spectrum-colorpicker
+						ng-model="borderColor"
+						format="'hex'"
+						on-change="onChangeBorderColor(color)">
+					</spectrum-colorpicker>
+				</div>
+				
+				<div class="col-lg-10">
+					<rzslider rz-slider-model="sliderThick.value" rz-slider-options="sliderThick.options"></rzslider>
+				</div>
+			</div>
+			
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-12">		
+					<div class="pos-left"><h3 translate="load.main.corner_style"></h3></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">				
+					<select ng-change="selectBorderRadius(borderRadius)" ng-model="borderRadius">
+						<option value="" selected  translate="load.main.select_all"></option>
+						<option value="tl">top-left</option>
+						<option value="tr">top-right</option>
+						<option value="br">bottom-right</option>
+						<option value="bl">bottom-left</option>
+					</select>
+				</div>
+				<div class="col-lg-8">	
+					<rzslider rz-slider-model="sliderRadius.value" rz-slider-options="sliderRadius.options"></rzslider>
+				</div>
+			</div>
+			
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-12">		
+					<div class="pos-left"><h3 translate="load.main.bg_style"></h3></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">				
+					<spectrum-colorpicker
+						ng-model="bgColor"
+						format="'hex'"
+						on-change="onChangeBackgraundColor(bgColor)"
+						options="{
+							color: '#ffffff'
+						}">
+					</spectrum-colorpicker>
+				</div>
+			</div>
+			
+			<br class="with-margin">
+			<div class="row">
+				<div class="col-lg-12">		
+					<div class="pos-left"><h3 translate="load.main.font"></h3></div>
+				</div>
+			</div>			
+			<div class="row">
+				<div class="col-lg-2 color-padding">
+					<spectrum-colorpicker
+						ng-model="fontColor"
+						format="'hex'"
+						on-change="onChangeFontColor(fontColor)">
+					</spectrum-colorpicker>
+				</div>
+				
+				<div class="col-lg-10">
+					<rzslider rz-slider-model="fontSize.value" rz-slider-options="fontSize.options"></rzslider>
+				</div>
+			</div>			
+			
 		</div>
 	</div>
 	
