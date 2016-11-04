@@ -1,9 +1,9 @@
 
 # step 1
-Modify ```resources/env.js```.  Must change your hostname
+Modify ```resources/env.js```.  Must change your domain name.
 
 	var configData = {    
-		urlHost: ["http://YOUR_HOST_NAME/"]
+		urlHost: ["http://YOUR_DOMAIN_NAME/"]
 	}
 
 
